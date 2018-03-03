@@ -1,0 +1,55 @@
+:root {
+	--primary: #ddd;
+	--primary-shadow: #bbb;
+	--white: #fff;
+	--black: #111;
+
+	--button-radius: 0.25rem;
+}
+
+html {
+	font-family: 'Nunito', sans-serif;
+}
+
+html, body {
+	height: 100%;
+}
+
+section {
+	width: 100%;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+body:not(.populated) .form {
+	height: 100%;
+}
+
+.form .generate {
+	padding: 0.5rem;
+
+	background: var(--primary);
+	border: none;
+	border-bottom: 3px solid var(--primary-shadow);
+	border-radius: var(--button-radius);
+	color: var(--black);
+}
+
+.prompts {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.prompts .prompt {
+	width: 100%;
+	max-width: 50rem;
+	margin-bottom: 2rem;
+
+	text-align: left;
+}

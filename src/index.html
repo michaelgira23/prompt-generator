@@ -5,10 +5,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Prompt Generator</title>
 
-		<link rel="stylehseet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
-		<!-- <button>Generate</button> -->
+		<section class="form">
+			<h1>Drawing Prompt Generator</h1>
+			<select id="amount">
+				<option value="1">1</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+			</select>
+			<select id="detail">
+				<option value="simple">Simple</option>
+				<option value="elaborate">Elaborate</option>
+			</select>
+			<button class="generate" onclick="generate()">Generate</button>
+		</section>
+		<section class="prompts"></section>
+
 		<script src="https://apis.google.com/js/api.js"></script>
 		<script src="generator.js"></script>
 	</body>
