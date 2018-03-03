@@ -6,16 +6,17 @@
 		<title>Prompt Generator</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,700">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 		<section class="form">
 			<h1>Drawing Prompt Generator</h1>
-			<form onsubmit="return generate()">
+			<form id="prompt-form">
 				<label>
 					<strong>Amount</strong>
-					<select id="amount">
+					<select id="amount" name="amount">
 						<option value="1">1</option>
 						<option value="5">5</option>
 						<option value="10">10</option>
@@ -23,7 +24,7 @@
 				</label>
 				<label>
 					<strong>Detail</strong>
-					<select id="detail">
+					<select id="detail" name="detail">
 						<option value="simple">Simple</option>
 						<option value="elaborate">Elaborate</option>
 					</select>

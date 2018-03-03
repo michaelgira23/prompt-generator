@@ -6,7 +6,7 @@ let tools = [];
 
 const $body = document.querySelector('body');
 
-const $form = document.querySelector('.form');
+const $form = document.querySelector('#prompt-form');
 const $amountInput = document.querySelector('#amount');
 const $detailInput = document.querySelector('#detail');
 
@@ -16,10 +16,17 @@ const $promptList = document.querySelector('.prompts');
 gapi.load('client', start);
 
 // When "Generate" is clicked
-function generate() {
-	console.log('Generate', $amountInput.value, $detailInput.value)
+const onSubmit = event => {
+	if (event) {
+		event.preventDefault();
+	}
 	const amount = Number($amountInput.value);
+	generate(amount, $detailInput.value);
+};
 
+$form.addEventListener('submit', onSubmit);
+
+async function generate(amount, detail) {
 	clearPrompts();
 
 	for (let i = 0; i < amount; i++) {
@@ -36,8 +43,8 @@ function generate() {
 		}
 
 		addPrompt({ theme, medium, tool });
+		await wait(100);
 	}
-	return false;
 }
 
 // On Google API load
@@ -66,6 +73,8 @@ function start() {
 			console.log('themes', themes);
 			console.log('mediums', mediums);
 			console.log('tools', tools);
+			// Show prompts for existing field options
+			onSubmit();
 		})
 		.catch(err => {
 			console.log('Uh oh!', err);
@@ -86,7 +95,7 @@ function addPrompt({ theme, medium, tool }) {
 	console.log('Add prompt', theme, medium, tool);
 
 	const $prompt = document.createElement('div');
-	$prompt.classList.add('prompt');
+	$prompt.classList.add('prompt', 'animated', 'fadeInLeft');
 	if (theme) {
 		$prompt.append(createDataElement('Theme', theme));
 	}
@@ -119,6 +128,11 @@ function clearPrompts() {
 	while ($promptList.firstChild) {
 		$promptList.removeChild($promptList.firstChild);
 	}
+}
+
+// Waits a certain time
+function wait(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 // Pick random element from array
