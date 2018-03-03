@@ -37,6 +37,7 @@ function generate() {
 
 		addPrompt({ theme, medium, tool });
 	}
+	return false;
 }
 
 // On Google API load
@@ -83,7 +84,6 @@ function getData() {
 // Add a prompt to the results
 function addPrompt({ theme, medium, tool }) {
 	console.log('Add prompt', theme, medium, tool);
-	$body.classList.add('populated');
 
 	const $prompt = document.createElement('div');
 	$prompt.classList.add('prompt');
@@ -119,7 +119,6 @@ function clearPrompts() {
 	while ($promptList.firstChild) {
 		$promptList.removeChild($promptList.firstChild);
 	}
-	$body.classList.remove('populated');
 }
 
 // Pick random element from array

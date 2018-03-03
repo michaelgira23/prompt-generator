@@ -12,16 +12,24 @@
 	<body>
 		<section class="form">
 			<h1>Drawing Prompt Generator</h1>
-			<select id="amount">
-				<option value="1">1</option>
-				<option value="5">5</option>
-				<option value="10">10</option>
-			</select>
-			<select id="detail">
-				<option value="simple">Simple</option>
-				<option value="elaborate">Elaborate</option>
-			</select>
-			<button class="generate" onclick="generate()">Generate</button>
+			<form onsubmit="return generate()">
+				<label>
+					<strong>Amount</strong>
+					<select id="amount">
+						<option value="1">1</option>
+						<option value="5">5</option>
+						<option value="10">10</option>
+					</select>
+				</label>
+				<label>
+					<strong>Detail</strong>
+					<select id="detail">
+						<option value="simple">Simple</option>
+						<option value="elaborate">Elaborate</option>
+					</select>
+				</label>
+				<button class="generate">Generate</button>
+			</form>
 		</section>
 		<section class="prompts"></section>
 

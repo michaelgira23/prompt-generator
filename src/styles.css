@@ -20,18 +20,29 @@ section {
 }
 
 .form {
+	margin-bottom: 2rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-body:not(.populated) .form {
-	height: 100%;
+.form form {
+	display: flex;
+	margin-bottom: 1rem;
 }
 
-.form .generate {
-	padding: 0.5rem;
+.form form label:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.form form label {
+	display: flex;
+	flex-direction: column;
+}
+
+.form form .generate {
+	padding: 0.75rem;
 
 	background: var(--primary);
 	border: none;
