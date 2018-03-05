@@ -70,9 +70,6 @@ function start() {
 			themes = columns[0];
 			mediums = columns[1];
 			tools = columns[2];
-			console.log('themes', themes);
-			console.log('mediums', mediums);
-			console.log('tools', tools);
 			// Show prompts for existing field options
 			onSubmit();
 		})
@@ -92,8 +89,6 @@ function getData() {
 
 // Add a prompt to the results
 function addPrompt({ theme, medium, tool }) {
-	console.log('Add prompt', theme, medium, tool);
-
 	const $prompt = document.createElement('div');
 	$prompt.classList.add('prompt', 'animated', 'fadeInLeft');
 	if (theme) {
