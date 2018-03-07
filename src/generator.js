@@ -8,7 +8,6 @@ const $body = document.querySelector('body');
 
 const $form = document.querySelector('#prompt-form');
 const $amountInput = document.querySelector('#amount');
-const $detailInput = document.querySelector('#detail');
 
 const $promptList = document.querySelector('.prompts');
 
@@ -21,27 +20,18 @@ const onSubmit = event => {
 		event.preventDefault();
 	}
 	const amount = Number($amountInput.value);
-	generate(amount, $detailInput.value);
+	generate(amount);
 };
 
 $form.addEventListener('submit', onSubmit);
 
-async function generate(amount, detail) {
+async function generate(amount) {
 	clearPrompts();
 
 	for (let i = 0; i < amount; i++) {
-		let theme = null;
-		let medium = null;
-		let tool = null;
-
-		switch ($detailInput.value) {
-			case 'elaborate':
-				medium = randomItem(mediums);
-				tool = randomItem(tools);
-			case 'simple':
-				theme = randomItem(themes);
-		}
-
+		let theme = randomItem(themes);
+		let medium = randomItem(mediums);
+		let tool = randomItem(tools);
 		addPrompt({ theme, medium, tool });
 		await wait(100);
 	}
